@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<h1>Cannon Ball Simulator</h1>
+
+	<h2>Welcome to the Cannon Ball Simulator!</h2>
+    
+	Press the button to fire!. A random angle of Elevation and Muzzle Velocity will be selected.
+    <br>
+    If the cannon ball lands within 100 meters of the target you get 10 points, 90 meters 20, etc.
+    <br>
+    Hitting the target gets 100 points.
+	
+	<form method='GET' action='{{ url_for('fire') }}'>
+		<button type=submit>FIRE!</button>
+	</form>
+	{% if power %}
+	<h1> Muzzle Velocity:{{ velocity.text }} Elevation:{{ elevation.text }}</h1>
+	<h1>{{ outcome.text }}</h1>
+	{% endif %}
+</html>
