@@ -9,5 +9,4 @@ def elevation():
     angle = random.choice(angles)
     return Response(angle, mimetype='type/plain')
 
-if __name__== '__main__':
-    app.run(debug=True, port=5002, host='0.0.0.0')
+if __name__== '__main__': app.run(debug=True, port=5002, host='0.0.0.0')
