@@ -4,7 +4,7 @@
 ## Content
 1. Background
 2. The "Game"
-3. 
+3. Risk Assessment 
 
 
 ## Background
@@ -21,6 +21,7 @@ The project must also include:
 * A simple ERD.
 * A Risk Assessement.
 
+
 ## The "Game"
 The appilcation is a simple Cannon Ball / Target game. When the user presses the fire 
 button, a simple service select an angle of cannon elevation from defined list, 
@@ -29,3 +30,10 @@ The angle and velocity are sent to third service which calculates the distance t
 a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
 The complete set of data, is persisted to a MySQL database.
 
+
+## Risk Assessment
+An initial Risk Assessment was completed on project commencement:
+![Risk Assessment](images/dcpp_Risk_Assessment.PNG)
+
+
+### Risk Assessment Revision
