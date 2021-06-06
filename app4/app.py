@@ -1,6 +1,6 @@
 from flask import Flask, request, Response
-from flask_sqlalchemy import SQLAlchemy
-from os import getenv
+#from flask_sqlalchemy import SQLAlchemy
+#from os import getenv
 import math
 
 app = Flask(__name__)
@@ -51,6 +51,9 @@ def fire():
     elevation 		= int(fire_details[0])
     muzzle_velocity	= int(fire_details[1])
 
+    # elevation = 46
+    # muzzle_velocity = 99
+
 	# Calculate distance cannon bull travels
 
     # Convert degress to radians
@@ -65,11 +68,10 @@ def fire():
     result = source_result(distance_traveled)
     
 
-    return  "Muzzel Velocity=" + \
+    return  "Muzzle Velocity=" + \
             str(muzzle_velocity) + \
             " Elevation=" + str(elevation) + \
             " Distance Travelled=" + str(distance_traveled) + \
             " : " + result
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5004, host='0.0.0.0')
+if __name__ == '__main__': app.run(debug=True, port=5004, host='0.0.0.0')

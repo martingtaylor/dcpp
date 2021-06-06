@@ -9,5 +9,4 @@ def velocity():
     # return Response(muzz_vel, mimetype='type/plain')
     return muzz_vel
 
-if __name__== '__main__':
-    app.run(debug=True, port=5003, host='0.0.0.0')
+if __name__== '__main__': app.run(debug=True, port=5003, host='0.0.0.0')
