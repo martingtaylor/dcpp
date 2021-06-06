@@ -41,19 +41,17 @@ def source_result(distance_traveled):
     return result
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def fire():
 	# Get request details
     text = request.data.decode("utf-8")
 	
 	# Decode request to list and parse to elevation and muzzle_velocity
-    #fire_details 	= list(text.split(','))
-    #elevation 		= int(fire_details[0])
-    #muzzle_velocity	= int(fire_details[1])
-	
+    fire_details 	= list(text.split(','))
+    elevation 		= int(fire_details[0])
+    muzzle_velocity	= int(fire_details[1])
+
 	# Calculate distance cannon bull travels
-    elevation = 45
-    muzzle_velocity = 110 # 90 - 110
 
     # Convert degress to radians
     angle_radians = math.radians(elevation)
@@ -72,26 +70,6 @@ def fire():
             " Elevation=" + str(elevation) + \
             " Distance Travelled=" + str(distance_traveled) + \
             " : " + result
-
-    '''
-    if power >= 50:
-        data1 = 'It\'s a powerful kick, stright past the endzone... and thats game. YOU LOOSE'
-        return Response( data1, mimetype='text/plain')
-    elif power in range (25,50):
-        if angle in range (45,136):
-            data1 = 'The kick goes stright to the kick returner, who takes a knee... game over. YOU LOOSE'
-            return Response( data1, mimetype='text/plain')
-        else: 
-            data1 = 'The angle looked good Bob, but just too much power... and that wraps up this game. YOU LOOSE'
-            return Response( data1, mimetype='text/plain')
-    elif power <= 24:
-        if angle in range (45) or angle in range (136,180):
-            data1 = 'This kick looks good Bob, a nice low drive... wait... I think Barkely\'s got it, he evades one tackle, it\'s a stright footrace now... TOUCHDOWN!! YOU WIN'
-            return Response( data1, mimetype='text/plain')
-        else:
-            data1 = 'Well that kick sums up their game Bob, flat, and no purpose...it\'s over. YOU LOOSE'
-            return Response( data1, mimetype='text/plain')
-    '''
 
 if __name__ == '__main__':
     app.run(debug=True, port=5004, host='0.0.0.0')
