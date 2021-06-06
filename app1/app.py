@@ -7,7 +7,7 @@ from os import getenv
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-service2 = 'http://serv2:5002'
+service2 = 'http://serv2 :5002'
 service3 = 'http://serv3:5003'
 service4 = 'http://serv4:5004'
 
