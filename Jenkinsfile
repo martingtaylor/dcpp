@@ -53,7 +53,7 @@ pipeline{
             stage('Stop all docker images running') {
                 steps{
                     sh '''
-                        docker kill $(docker ps -q)
+                        docker kill `$(docker ps -q)`
                     '''
                 }
             }
