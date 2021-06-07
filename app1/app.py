@@ -7,9 +7,9 @@ from os import getenv
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-service2 = 'http://app2:5002'
-service3 = 'http://app3:5003'
-service4 = 'http://app4:5004'
+app2    = 'http://app2:5002'
+app3    = 'http://app3:5003'
+app4    = 'http://app4:5004'
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
@@ -18,8 +18,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 #    id              = db.Column(db.Integer,     primary_key=True)
 #    velocity        = db.Column(db.Integer,     nullable=False)
 #    elevation       = db.Column(db.Integer,     nullable=False)
-#    result          = db.Column(db.Integer,     nullable=False)
-
+#    result          = db.Column(db.String,      nullable=False)
+ 
+ 
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -38,9 +39,9 @@ def home():
     result = requests.post(service4, data=single)
 
     # Write to database
-    #new_kick = Newoutcomes(kick_power=power.text, kick_angle=angle.text, kick_outcome=outcome.text)
-    #db.session.add(new_kick)
-    #db.session.commit()
+    # firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=reuslt.text)
+    # db.session.add(firing)
+    # db.session.commit()
 
     return render_template('index.html', velocity=muzzle_velocity, angle=elevation_angle, outcome=result) 
 
