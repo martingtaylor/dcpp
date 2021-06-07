@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM dcpp_app1:latest
   
 COPY . .
 
