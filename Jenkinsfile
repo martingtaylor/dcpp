@@ -50,20 +50,13 @@ pipeline{
                     '''
                 }
             }
-            stage('Stop all docker images running') {
-                steps{
-                    sh '''
-                        docker kill `docker ps -q`
-                    '''
-                }
-            }
             stage('Starting Application') {
                 steps{
                     sh '''
-                        docker run -d app1
-                        docker run -d app2
-                        docker run -d app3
-                        docker run -d app4
+                        docker run -d --name app1 app1
+                        docker run -d --name app2 app2
+                        docker run -d --name app3 app3
+                        docker run -d --name app3 app4
                     '''
                 }
             }
