@@ -8,8 +8,9 @@ pipeline{
             stage('Build Image'){
                 steps{
 
-			sh '''pwd
-			ls -l
+			sh '''
+			cd app1
+			docker build . -t mgt/app1@latest
 			'''
                 }
             }
