@@ -16,7 +16,19 @@ pipeline{
                         cd app2
                         docker build . -t mgt/app2:latest
                         '''
+                        
+			sh '''
+                        cd appr3
+                        docker build . -t mgt/app3:latest
+                        '''
+
+                        sh '''
+                        cd appr42
+                        docker build . -t mgt/app4:latest
+                        '''
+
                 }
             }
         }
 }
+
