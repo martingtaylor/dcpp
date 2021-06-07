@@ -9,7 +9,7 @@ pipeline{
                 steps{
                     script{
                         if (env.rollback == 'false'){
-                            image = docker.build("martingtaylor/dcpp")
+                            image = docker.build("martingtaylor/dcppi/app1")
                         }
                     }
                 }
