@@ -7,11 +7,10 @@ pipeline{
         stages{
             stage('Build Image'){
                 steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            image = docker.build("martingtaylor/dcppi/app1")
-                        }
-                    }
+
+			sh '''pwd
+			ls -l
+			'''
                 }
             }
         }
