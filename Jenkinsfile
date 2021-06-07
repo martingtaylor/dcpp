@@ -18,12 +18,12 @@ pipeline{
                         '''
                         
 			sh '''
-                        cd appr3
+                        cd app3
                         docker build . -t mgt/app3:latest
                         '''
 
                         sh '''
-                        cd appr42
+                        cd app42
                         docker build . -t mgt/app4:latest
                         '''
 
