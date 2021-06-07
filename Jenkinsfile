@@ -5,13 +5,17 @@ pipeline{
             rollback = 'false'
         }
         stages{
-            stage('Build Image'){
+            stage('Build Images'){
                 steps{
-
 			sh '''
 			cd app1
 			docker build . -t mgt/app1:latest
 			'''
+
+                        sh '''
+                        cd i../appr2
+                        docker build . -t mgt/app2:latest
+                        '''
                 }
             }
         }
