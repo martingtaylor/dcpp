@@ -10,7 +10,7 @@ pipeline{
 
 			sh '''
 			cd app1
-			docker build . -t mgt/app1@latest
+			docker build . -t mgt/app1:latest
 			'''
                 }
             }
