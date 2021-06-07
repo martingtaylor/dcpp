@@ -23,7 +23,7 @@ pipeline{
                         '''
 
                         sh '''
-                        cd app42
+                        cd app4
                         docker build . -t mgt/app4:latest
                         '''
 
