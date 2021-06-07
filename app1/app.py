@@ -26,17 +26,17 @@ def index():
     return render_template('index.html')
 
 @app.route('/fire', methods=['GET','POST'])
-def home():
+def fire():
     # Get data from App2 and App3
-    muzzle_velocity = requests.get(service2)
-    elevation_angle = requests.get(service3)
+    muzzle_velocity = requests.get(app2)
+    elevation_angle = requests.get(app3)
 
     # Build into data to send to App4
     data            = [elevation_angle.text, muzzle_velocity.text]
     single          = ','.join(data)
 
     # Get result back
-    result = requests.post(service4, data=single)
+    result = requests.post(app4, data=single)
 
     # Write to database
     # firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=reuslt.text)
