@@ -12,6 +12,7 @@ app3    = 'http://app3:5003'
 app4    = 'http://app4:5004'
 
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 
 #class record_fires(db.Model):
@@ -20,7 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 #    elevation       = db.Column(db.Integer,     nullable=False)
 #    result          = db.Column(db.String,      nullable=False)
  
- 
+
 @app.route('/')
 def index():
     return render_template('index.html')
