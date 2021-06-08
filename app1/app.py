@@ -29,8 +29,8 @@ def index():
 @app.route('/fire', methods=['GET','POST'])
 def fire():
     # Get data from App2 and App3
-    muzzle_velocity = requests.get(app2)
-    elevation_angle = requests.get(app3)
+    elevation_angle = requests.get(app2)
+    muzzle_velocity = requests.get(app3)
 
     # Build into data to send to App4
     data            = [elevation_angle.text, muzzle_velocity.text]
