@@ -8,7 +8,7 @@ from sqlalchemy import desc
 app = Flask(__name__)
 db = SQLAlchemy(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fire.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@35.197.213.41/cannon_ball'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DATABASE_URI")
 
 app2    = 'http://app2:5002'
 app3    = 'http://app3:5003'
