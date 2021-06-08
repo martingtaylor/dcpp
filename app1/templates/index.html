@@ -13,7 +13,7 @@
 	<form method='GET' action="{{ url_for('fire') }}">
 		<button type=submit>FIRE!</button>
 	</form>
-	{% if power %}
+	{% if velocity %}
 	<h1> Muzzle Velocity:{{ velocity.text }} Elevation:{{ elevation.text }}</h1>
 	<h1>{{ outcome.text }}</h1>
 	{% endif %}

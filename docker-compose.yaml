@@ -1,0 +1,68 @@
+version: '3.7'
+services: 
+  app1:
+    image: martingtaylor/app1
+    build: ./app1
+    ports: 
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    # environment:
+      # DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: 2
+  app2:
+    image: martingtaylor/app2
+    build: ./app2
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+    deploy:
+      replicas: 2
+  app3:
+    image: martingtaylor/app3
+    build: ./app3
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp
+    deploy:
+      replicas: 2
+  app4:
+    image: martingtaylor/app4
+    build: ./app4
+    ports:
+    - target: 5004
+      published: 5004
+      protocol: tcp
+    #depends_on:
+    #- mysql
+    deploy:
+      replicas: 2
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+  #mysql:
+  #  image: martingtaylor/fires-db
+  #  build: ./db
+  #  ports:
+  #  - target: 3306
+  #    published: 3306
+  #    protocol: tcp
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: ${password}
+  #    MYSQL_DATABASE: fires
+  #  volumes:
+  #  - type: volume
+  #    source: fires
+  #    target: /var/lib/mysql
+volumes:
+  fires:

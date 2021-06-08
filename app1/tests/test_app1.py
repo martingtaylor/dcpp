@@ -14,11 +14,11 @@ class TestBase(TestCase):
 
 
 class TestFire(TestBase):
-    def test_kick(self):
+    def test_fire(self):
         with requests_mock.mock() as p:
             p.get('http://app2:5002', text="45")
             p.get('http://app3:5003', text='99')
-            p.post('http://app:5004', text="TEST")
+            p.post('http://app4:5004', text="Cannon Ball Simulator")
             
             response = self.client.post(url_for('fire'))
-            self.assertIn(b'TEST', response.data)
+            self.assertIn(b'Cannon Ball Simulator', response.data)

@@ -12,7 +12,7 @@ app3    = 'http://app3:5003'
 app4    = 'http://app4:5004'
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fire.db'
 
 class record_fires(db.Model):
     id              = db.Column(db.Integer,     primary_key=True)
@@ -20,7 +20,7 @@ class record_fires(db.Model):
     elevation       = db.Column(db.Integer,     nullable=False)
     result          = db.Column(db.String,      nullable=False)
  
- 
+
 
 @app.route('/')
 def index():
@@ -43,7 +43,7 @@ def fire():
     # firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=reuslt.text)
     # db.session.add(firing)
     # db.session.commit()
-
+    
     return render_template('index.html', velocity=muzzle_velocity, angle=elevation_angle, outcome=result) 
 
 
