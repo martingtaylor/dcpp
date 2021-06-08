@@ -38,10 +38,10 @@ def fire():
     result = requests.post(app4, data=single)
 
     # Query Database before adding
-    firings = record_fires.query.all()
+    all_firings = record_fires.query.all()
 
     # Write to database
-    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text, allfires=firings)
+    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text, allfires=all_firings)
     db.session.add(firing)
     db.session.commit()
     
