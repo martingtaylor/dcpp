@@ -17,5 +17,7 @@
 	<h1> Muzzle Velocity:{{ velocity.text }} Elevation:{{ elevation.text }}</h1>
 	<h1>{{ outcome.text }}</h1>
 	{% endif %}
-	{{ allfires.text }}
+	{% if allfires %}
+		{{ allfires.text }}
+	{% endif %}
 </html>
