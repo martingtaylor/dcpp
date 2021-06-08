@@ -5,6 +5,13 @@ pipeline{
             rollback = 'false'
         }
         stages{
+            stage('Test'){
+                steps{
+                    
+                }
+            }
+        }
+        stages{
             stage('Build Images'){
                 steps{
 			        sh '''
