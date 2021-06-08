@@ -6,19 +6,17 @@ from os import getenv
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fire.db'
 
 app2    = 'http://app2:5002'
 app3    = 'http://app3:5003'
 app4    = 'http://app4:5004'
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fire.db'
-
 class record_fires(db.Model):
     id              = db.Column(db.Integer,     primary_key=True)
     velocity        = db.Column(db.Integer,     nullable=False)
     elevation       = db.Column(db.Integer,     nullable=False)
-    result          = db.Column(db.String,      nullable=False)
+    result          = db.Column(db.String(200), nullable=False)
  
 
 
@@ -39,10 +37,13 @@ def fire():
     # Get result back
     result = requests.post(app4, data=single)
 
+    # Query Database before adding
+    firings = record_fires.query.all()
+
     # Write to database
-    #firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text)
-    #db.session.add(firing)
-    #db.session.commit()
+    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text, allfires=firings)
+    db.session.add(firing)
+    db.session.commit()
     
     return render_template('index.html', velocity=muzzle_velocity, elevation=elevation_angle, outcome=result) 
 
