@@ -38,7 +38,7 @@ def fire():
     result = requests.post(app4, data=single)
 
     # Query Database before adding
-    all_firings = record_fires.query.all()
+    all_firings = record_fires.query(result).all()
 
     # Write to database
     firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text)
