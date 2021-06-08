@@ -4,6 +4,7 @@
 ## Content
 1. Background
 2. The "Game"
+3. Techincal Design
 3. Risk Assessment 
 
 
@@ -31,9 +32,37 @@ a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rud
 The complete set of data, is persisted to a MySQL database.
 
 
+## Techincal Design
+The application is based on four seperate, python based services:
+|Service|Description|
+|-------|-----------|
+|APP1   |Main GUI, reporting and trigger button|
+|APP2   |Service that returns a randomly selected elevation angle|
+|APP3   |Service that returns a randomly selected muzzle velocity|
+|APP4   |Service that accepts the elevation and velocity, calculate the distance travelled and allocates a score and comment.
+
+APP1 also is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
+
+|Column|Type|Description|
+|------|----|-----------|
+|id       |Integer, Not Null|Row Identifier and Primary Key|
+|velocity |Integer, Not Null|Muzzle Velocity|
+|elevation|Integer, Not Null|Elevation Angle|
+|result   |String, Not Null|Resultant text (details + ranking) from APP4|
+
+### ERD:
+
+![ERD](images/dcpp_ERD.png)
+ 
+
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:
 ![Risk Assessment](images/dcpp_Risk_Assessment.PNG)
 
-
 ### Risk Assessment Revision
+
+
+## Project Manager
+All project steps where recorded on a JIRA Board:
+![JIRA Board](images/dcpp_JIRA_bord.PNG)
+

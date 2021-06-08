@@ -50,16 +50,6 @@ pipeline{
                     '''
                 }
             }
-            stage('Starting Application') {
-                steps{
-                    sh '''
-                        docker run -d --name app1 app1
-                        docker run -d --name app2 app2
-                        docker run -d --name app3 app3
-                        docker run -d --name app3 app4
-                    '''
-                }
-            }
         }
 }
 
