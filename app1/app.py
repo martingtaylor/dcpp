@@ -41,11 +41,11 @@ def fire():
     all_firings = record_fires.query.all()
 
     # Write to database
-    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text, allfires=all_firings)
+    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text)
     db.session.add(firing)
     db.session.commit()
     
-    return render_template('index.html', velocity=muzzle_velocity, elevation=elevation_angle, outcome=result) 
+    return render_template('index.html', velocity=muzzle_velocity, elevation=elevation_angle, outcome=result, allfires=all_firings) 
 
 
 if __name__=='__main__': app.run(host='0.0.0.0', port=5000, debug=True)
