@@ -15,24 +15,8 @@ pipeline{
             stage('Build Images'){
                 steps{
 			        sh '''
-			            cd app1
-			            docker build . -t app1:latest
+			            docker-compose build
 			        '''
-
-                    sh '''
-                        cd app2
-                        docker build . -t app2:latest
-                    '''
-                        
-			        sh '''
-                        cd app3
-                        docker build . -t app3:latest
-                    '''
-
-                    sh '''
-                        cd app4
-                        docker build . -t app4:latest
-                    '''
                 }
             }
             stage('Upload to Docker Hub') {
@@ -42,14 +26,16 @@ pipeline{
                     '''
 
                     sh '''
-                        docker tag app1 martingtaylor/app1
-                        docker push martingtaylor/app1
-                        docker tag app2 martingtaylor/app2
-                        docker push martingtaylor/app2
-                        docker tag app3 martingtaylor/app3
-                        docker push martingtaylor/app3
-                        docker tag app4 martingtaylor/app4
-                        docker push martingtaylor/app4                    
+                        docker-compose push
+
+                        #docker tag app1 martingtaylor/app1
+                        #docker push martingtaylor/app1
+                        #docker tag app2 martingtaylor/app2
+                        #docker push martingtaylor/app2
+                        #docker tag app3 martingtaylor/app3
+                        #docker push martingtaylor/app3
+                        #docker tag app4 martingtaylor/app4
+                        #docker push martingtaylor/app4                    
                     '''
 
                     sh '''
