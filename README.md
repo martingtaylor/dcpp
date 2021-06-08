@@ -5,9 +5,10 @@
 1. Background
 2. The "Game"
 3. Techincal Design
-4. Unit Tests
-5. Risk Assessment 
-6. Project Management
+4. CI/CD
+5. Unit Tests
+6. Risk Assessment 
+7. Project Management
 
 
 ## Background
@@ -33,6 +34,12 @@ The angle and velocity are sent to third service which calculates the distance t
 a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
 The complete set of data, is persisted to a MySQL database.
 
+When accessed the screen displays:
+![SCREEN0](images/dcpp_SCREEN0.PNG)
+
+Pressing the fire button, fires the cannon ball and generates a score.
+![SCREEN0](images/dcpp_SCREEN1.PNG)
+
 
 ## Techincal Design
 The application is based on four seperate, python based services:
@@ -55,7 +62,28 @@ APP1 also is responsible for recording the details of the firing to a table with
 ### ERD:
 
 ![ERD](images/dcpp_ERD.png)
- 
+
+## CI.CD
+The appilcation was developed in python, using Microsoft Visual Studio, linked to GITLAB. During the development process, regular updates where posted to the GIT DEV branch.
+
+A Web-hook was attached to the GIT Repo, currently monitoring the DEV branch, (it will alter be moved to Main branch, if and when the application goes into production!!) 
+
+The Repo also contained:
+|File|Description|
+|----|-----------|
+|Jenkinsfile|Containing the pipeline build, upload and deploy the |application
+|Dockerfiles|To build each service|
+|Requerments.txt|Requerements for each service|
+
+
+
+The Web-Hook triggers a Jenkins pipeline, that when trigger:
+1. Downloads the application from the GIT Repo.
+2. Runs PYTEST against the new code.
+3. Runs the DOCKER-COMPOSE to create images for each services.
+4. Uploads the new containers to DOCKERHUB.
+![DOCKERHUB](images/dccp_Dockerhub.PNG)
+
 ## Unit Tests
 
 ## Risk Assessment
@@ -63,9 +91,18 @@ An initial Risk Assessment was completed on project commencement:
 ![Risk Assessment](images/dcpp_Risk_Assessment.PNG)
 
 ### Risk Assessment Revision
-
+The following revisions where applied to the initial Risk Assessment:
 
 ## Project Manager
-All project steps where recorded on a JIRA Board:
+The JIRA Project Management tool was used to track and manage the application during the development, testing deployment cycle:
 ![JIRA Board](images/dcpp_JIRA_bord.PNG)
 
+**NOTE:** The above graphic may not be an accurate reflection of the curreny JIRA tickets.
+
+The current JIRA configuration allows:
+
+Management of the "To-Do list" - user stories, summarising "Who Wants", "What they Want" and "What they except"
+
+The "In progress" - containing items currently being worked on, or blocked items.
+
+The "Done List" - Items that have been completed and tested, or approved.
