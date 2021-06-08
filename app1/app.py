@@ -20,6 +20,7 @@ class record_fires(db.Model):
     elevation       = db.Column(db.Integer,     nullable=False)
     result          = db.Column(db.String,      nullable=False)
  
+ 
 
 @app.route('/')
 def index():
