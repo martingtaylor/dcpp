@@ -7,11 +7,9 @@ pipeline{
         stages{
             stage('Test'){
                 steps{
-                    
+                    // Run PYTEST
                 }
             }
-        }
-        stages{
             stage('Build Images'){
                 steps{
 			        sh '''
