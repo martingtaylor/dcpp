@@ -5,7 +5,9 @@
 1. Background
 2. The "Game"
 3. Techincal Design
-3. Risk Assessment 
+4. Unit Tests
+5. Risk Assessment 
+6. Project Management
 
 
 ## Background
@@ -54,6 +56,7 @@ APP1 also is responsible for recording the details of the firing to a table with
 
 ![ERD](images/dcpp_ERD.png)
  
+## Unit Tests
 
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:

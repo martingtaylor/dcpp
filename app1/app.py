@@ -14,11 +14,11 @@ app4    = 'http://app4:5004'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 
-#class record_fires(db.Model):
-#    id              = db.Column(db.Integer,     primary_key=True)
-#    velocity        = db.Column(db.Integer,     nullable=False)
-#    elevation       = db.Column(db.Integer,     nullable=False)
-#    result          = db.Column(db.String,      nullable=False)
+class record_fires(db.Model):
+    id              = db.Column(db.Integer,     primary_key=True)
+    velocity        = db.Column(db.Integer,     nullable=False)
+    elevation       = db.Column(db.Integer,     nullable=False)
+    result          = db.Column(db.String,      nullable=False)
  
 
 @app.route('/')
