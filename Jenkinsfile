@@ -8,6 +8,9 @@ pipeline{
         stage('Test') {
             steps {
                 // Run PYTEST
+                sh '''
+                    echo TESTING
+                '''
             }
         }
         stage('Build Images') {
