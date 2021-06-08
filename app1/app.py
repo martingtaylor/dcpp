@@ -40,9 +40,9 @@ def fire():
     result = requests.post(app4, data=single)
 
     # Write to database
-    firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text)
-    db.session.add(firing)
-    db.session.commit()
+    #firing = record_fires(velocity=muzzle_velocity.text, elevation=elevation_angle.text, result=result.text)
+    #db.session.add(firing)
+    #db.session.commit()
     
     return render_template('index.html', velocity=muzzle_velocity, elevation=elevation_angle, outcome=result) 
 
