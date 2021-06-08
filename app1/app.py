@@ -44,7 +44,7 @@ def fire():
     # db.session.add(firing)
     # db.session.commit()
     
-    return render_template('index.html', velocity=muzzle_velocity, angle=elevation_angle, outcome=result) 
+    return render_template('index.html', velocity=muzzle_velocity, elevation=elevation_angle, outcome=result) 
 
 
 if __name__=='__main__': app.run(host='0.0.0.0', port=5000, debug=True)
