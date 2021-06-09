@@ -7,13 +7,19 @@ pipeline{
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
     }
     stages{
-        stage('Test') {
+        stage('Requirementd') {
             steps {
-                // Run PYTEST
                 sh '''
                     sudo apt-get update
                     sudo apt-get install python3-pip -y
                     pip3 install -r requirements.txt
+                '''
+            }
+        }
+        stage('Testing') {
+            steps {
+                // Run PYTEST
+                sh '''
                     python3 -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc --cov-report html
                 '''
             }
