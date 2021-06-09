@@ -25,6 +25,7 @@ The project must also include:
 * A simple ERD.
 * A Risk Assessement.
 
+GITHUB has been used as a code repository: [Link to DCCP GITHUB](https://github.com/martingtaylor/dcpp)
 
 ## The "Game"
 The appilcation is a simple Cannon Ball / Target game. 
@@ -100,9 +101,17 @@ The following unit test where created:
 |       |AssertIn    |Validate return value|
 |APP4   |Assert200   |13 tests for each ranking message (Over/Under shoot, Bulls Eye, 10 Ranings|
 
+The **PYTEST** command used was:
+
+**python -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc --cov-report html**
+
 
 Happly able to validate 100% coverage:
 ![Unit Tests](images/dcpp_PYTEST.PNG)
+
+Coverage HTML where generated and saved to GIT:
+
+![Unit Test](images/dcpp_HTML_index.PNG)
 
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:
