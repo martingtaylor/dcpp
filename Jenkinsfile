@@ -3,8 +3,8 @@ pipeline{
     environment {
         app_version = 'v1'
         rollback = 'false'
-        DOCKER_USERNAME = credentials$('DOCKER_USERNAME')
-        DOCKER_PASSWORD = credentials$('DOCKER_PASSWORD')
+        DOCKER_USERNAME = credentials('DOCKER_USERNAME')
+        DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
     }
     stages{
         stage('Test') {
