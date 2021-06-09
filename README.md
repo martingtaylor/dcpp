@@ -113,6 +113,10 @@ Coverage HTML where generated and saved to GIT:
 
 ![Unit Test](images/dcpp_HTML_index.PNG)
 
+The testing has now been built into the Jenkins CD/CI process:
+
+![Jenking Unit Test](images/dcpp_jenkins_pytest.PNG)
+
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:
 ![Risk Assessment](images/dcpp_Risk_Assessment.PNG)

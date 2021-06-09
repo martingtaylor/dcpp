@@ -7,7 +7,7 @@ pipeline{
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
     }
     stages{
-        stage('Requirementd') {
+        stage('Requirements') {
             steps {
                 sh '''
                     sudo apt-get update
