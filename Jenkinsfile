@@ -4,7 +4,7 @@ pipeline{
         app_version = 'v1'
         rollback = 'false'
         DOCKER_USERNAME = credentials$('DOCKER_USERNAME')
-        DICKER_PASSWORD = credentials$('DOCKER_PASSWORD')
+        DOCKER_PASSWORD = credentials$('DOCKER_PASSWORD')
     }
     stages{
         stage('Test') {
