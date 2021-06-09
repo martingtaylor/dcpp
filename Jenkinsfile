@@ -26,13 +26,7 @@ pipeline{
             steps {
                 sh '''
                     docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-                '''
-
-                sh '''
                     docker-compose push                   
-                '''
-
-                sh '''
                     docker logout
                 '''
             }
