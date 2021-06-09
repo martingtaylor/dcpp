@@ -19,7 +19,6 @@ class TestBase(TestCase):
         db.session.remove() 
         db.drop_all()
 
-
 class TestFire(TestBase):
     def test_home(self):
         response = self.client.get(url_for('index'))
