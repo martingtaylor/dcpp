@@ -82,11 +82,13 @@ The Repo also contained:
 
 
 
-The Web-Hook triggers a Jenkins pipeline, that when trigger:
-1. Downloads the application from the GIT Repo.
-2. Runs PYTEST against the new code.
-3. Runs the DOCKER-COMPOSE to create images for each services.
-4. Uploads the new containers to DOCKERHUB.
+On a push to Gitm the Web-Hook triggers a Jenkins pipeline, that:
+1. Pulls the application from the GIT Repo.
+2. Run a requirments install.
+2. Runs PYTEST against the new code:
+![Jenking Unit Test](images/dcpp_jenkins_pytest.PNG)
+3. Runs the DOCKER-COMPOSE to create images for each service.
+4. Uploads the new images to DOCKERHUB. (Login credentials are stored within Jenkins secrets manager.)
 ![DOCKERHUB](images/dccp_Dockerhub.PNG)
 
 ## Unit Tests
@@ -113,9 +115,7 @@ Coverage HTML where generated and saved to GIT:
 
 ![Unit Test](images/dcpp_HTML_index.PNG)
 
-The testing has now been built into the Jenkins CD/CI process:
 
-![Jenking Unit Test](images/dcpp_jenkins_pytest.PNG)
 
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:
