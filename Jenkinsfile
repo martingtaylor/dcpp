@@ -3,6 +3,8 @@ pipeline{
     environment {
         app_version = 'v1'
         rollback = 'false'
+        DOCKER_USERNAME = credentials$('DOCKER_USERNAME')
+        DICKER_PASSWORD = credentials$('DOCKER_PASSWORD')
     }
     stages{
         stage('Test') {
@@ -23,7 +25,7 @@ pipeline{
         stage('Upload to Docker Hub') {
             steps {
                 sh '''
-                    docker login -u martingtaylor -p Mgt2992443
+                    docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
                 '''
 
                 sh '''
