@@ -27,17 +27,19 @@ The project must also include:
 
 
 ## The "Game"
-The appilcation is a simple Cannon Ball / Target game. When the user presses the fire 
-button, a simple service select an angle of cannon elevation from defined list, 
-another service generates the muzzle velocity of the cannon ball from a defined rane.
-The angle and velocity are sent to third service which calculates the distance travlle and how close to a 100 meter target the cannon balls land. This score is then rank from 
-a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
-The complete set of data, is persisted to a MySQL database.
+The appilcation is a simple Cannon Ball / Target game. 
+
+When the user presses the fire button, a simple service select an angle of cannon elevation from defined list, another service generates the muzzle velocity of the cannon ball from a defined rane.
+
+
+The angle and velocity are sent to third service which calculates the distance travlle and how close to a 100 meter target the cannon balls land. This score is then rank from a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
+
+The complete set of data (angle, velocity and message), is persisted to a MySQL database, and the last 10 entries displayed under the latest result.
 
 When accessed the screen displays:
 ![SCREEN0](images/dcpp_SCREEN0.PNG)
 
-Pressing the fire button, fires the cannon ball and generates a score.
+Pressing the fire button, fires the cannon ball and generates a score. The last 10 attempts are then displayed.
 ![SCREEN0](images/dcpp_SCREEN1.PNG)
 
 
@@ -50,7 +52,7 @@ The application is based on four seperate, python based services:
 |APP3   |Service that returns a randomly selected muzzle velocity|
 |APP4   |Service that accepts the elevation and velocity, calculate the distance travelled and allocates a score and comment.
 
-APP1 also is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
+**APP1** also is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
 
 |Column|Type|Description|
 |------|----|-----------|
@@ -59,7 +61,9 @@ APP1 also is responsible for recording the details of the firing to a table with
 |elevation|Integer, Not Null|Elevation Angle|
 |result   |String, Not Null|Resultant text (details + ranking) from APP4|
 
+
 ### ERD:
+A simple ERD disagram for this table:
 
 ![ERD](images/dcpp_ERD.png)
 
@@ -85,6 +89,20 @@ The Web-Hook triggers a Jenkins pipeline, that when trigger:
 ![DOCKERHUB](images/dccp_Dockerhub.PNG)
 
 ## Unit Tests
+The following unit test where created:
+|Service|Test|Description|
+|-------|----|-----------|
+|APP1   |Assert200   |Access to access "/"|
+|       |AssertIn    |Mock request for APP2, APP3 and APP4, to exercise APP2 request|
+|APP2   |Assert200   |Access to elevation service|
+|       |AssertIn    |Validate return value|
+|APP3   |Assert200   |Access to veloicity service|
+|       |AssertIn    |Validate return value|
+|APP4   |Assert200   |13 tests for each ranking message (Over/Under shoot, Bulls Eye, 10 Ranings|
+
+
+Happly able to validate 100% coverage:
+![Unit Tests](images/dcpp_PYTEST.PNG)
 
 ## Risk Assessment
 An initial Risk Assessment was completed on project commencement:

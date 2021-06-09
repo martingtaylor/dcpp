@@ -1,1 +1,1 @@
-python -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc
+python -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc --cov-report html
