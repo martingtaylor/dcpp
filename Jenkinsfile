@@ -40,5 +40,19 @@ pipeline{
                 '''
             }
         }
+        stage('Configuration') {
+            steps {
+                sh '''
+                    echo Configuration
+                '''
+            }
+        }
+        stage('Deployment') {
+            steps {
+                sh '''
+                    echo Deployment
+                '''
+            }
+        }
     }
 }
