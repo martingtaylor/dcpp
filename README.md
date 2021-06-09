@@ -38,9 +38,11 @@ The angle and velocity are sent to third service which calculates the distance t
 The complete set of data (angle, velocity and message), is persisted to a MySQL database, and the last 10 entries displayed under the latest result.
 
 When accessed the screen displays:
+
 ![SCREEN0](images/dcpp_SCREEN0.PNG)
 
 Pressing the fire button, fires the cannon ball and generates a score. The last 10 attempts are then displayed.
+
 ![SCREEN0](images/dcpp_SCREEN1.PNG)
 
 
