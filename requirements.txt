@@ -1,0 +1,5 @@
+flask
+flask-testing
+requests_mock
+flask-sqlalchemy
+pytest
