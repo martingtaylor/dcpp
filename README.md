@@ -80,9 +80,10 @@ The Repo also contained:
 |Dockerfiles|To build each service|
 |Requerments.txt|Requerements for each service|
 
+Overview of the CI/CD process:
+![CD/CI Process](images/dcpp_CDCI.PNG)
 
-
-On a push to Gitm the Web-Hook triggers a Jenkins pipeline, that:
+On a push to Github, a Web-Hook triggers a Jenkins pipeline, that:
 1. Pulls the application from the GIT Repo.
 2. Run a requirments install.
 2. Runs PYTEST against the new code:
@@ -90,6 +91,9 @@ On a push to Gitm the Web-Hook triggers a Jenkins pipeline, that:
 3. Runs the DOCKER-COMPOSE to create images for each service.
 4. Uploads the new images to DOCKERHUB. (Login credentials are stored within Jenkins secrets manager.)
 ![DOCKERHUB](images/dccp_Dockerhub.PNG)
+5. Ansible
+6. Creates and configures a NGINX load balancer.
+
 
 ## Unit Tests
 The following unit test where created:
