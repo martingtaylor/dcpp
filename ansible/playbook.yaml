@@ -8,3 +8,8 @@
   roles:
   - docker
   - worker
+- hosts: nginx
+  become: true
+  roles:
+  - nginx
+  
