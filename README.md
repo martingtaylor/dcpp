@@ -49,14 +49,15 @@ Pressing the fire button, fires the cannon ball and generates a score. The last 
 The application is based on four seperate, python based services:
 |Service|Description|
 |-------|-----------|
-|APP1   |Main GUI, reporting and trigger button|
+|APP1   |Main GUI, reporting and trigger button. Write APP4 results to MySQL Database|
 |APP2   |Service that returns a randomly selected elevation angle|
 |APP3   |Service that returns a randomly selected muzzle velocity|
 |APP4   |Service that accepts the elevation and velocity, calculate the distance travelled and allocates a score and comment.
 
-**APP1** also is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
-
 ![Overview](images/dccp_Arch_Overview.png)
+
+**APP1** is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
+
 
 |Column|Type|Description|
 |------|----|-----------|
@@ -112,7 +113,7 @@ The following unit test where created:
 
 The **PYTEST** command used was:
 
-**python -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc --cov-report html**
+     python -m pytest -s --cov --cov-report term-missing --cov-config=.coveragerc --cov-report html
 
 
 Happly able to validate 100% coverage:
