@@ -8,7 +8,7 @@
 5. Unit Tests
 6. Risk Assessment 
 7. Project Management
-
+8. Development Repository Structure
 
 ## Background
 The DevOps Core Practical project is supposed to display our skills in the use of DevOps technologies, CI/CD techniques, deploy tools and working strategies. It has been stated that this assessment does not concentrate on the actual program being deployed, rather the methods used to automatically install the application on the target hosts.
@@ -41,7 +41,7 @@ When accessed the screen displays:
 
 Pressing the fire button, fires the cannon ball and generates a score. The last 10 attempts are then displayed.
 
-![SCREEN0](images/dcpp_SCREEN1.PNG)
+![SCREEN1](images/dcpp_SCREEN1.PNG)
 
 
 ## Techincal Design
@@ -170,3 +170,103 @@ Management of the "To-Do list" - user stories, summarising "Who Wants", "What th
 The "In progress" - containing items currently being worked on, or blocked items.
 
 The "Done List" - Items that have been completed and tested, or approved.
+
+
+## Development Repository Structure
+<pre>
+dcpp
+├── JenkinsTest.PNG
+├── Jenkinsfile
+├── README.md
+├── ansible
+│   ├── inventory.yaml
+│   ├── playbook.yaml
+│   └── roles
+│       ├── docker
+│       │   ├── README.md
+│       │   ├── defaults
+│       │   │   └── main.yml
+│       │   ├── handlers
+│       │   │   └── main.yml
+│       │   ├── meta
+│       │   │   └── main.yml
+│       │   ├── tasks
+│       │   │   └── main.yml
+│       │   ├── tests
+│       │   │   ├── inventory
+│       │   │   └── test.yml
+│       │   └── vars
+│       │       └── main.yml
+│       ├── manager
+│       │   ├── README.md
+│       │   ├── defaults
+│       │   │   └── main.yml
+│       │   ├── handlers
+│       │   │   └── main.yml
+│       │   ├── meta
+│       │   │   └── main.yml
+│       │   ├── tasks
+│       │   │   └── main.yml
+│       │   ├── tests
+│       │   │   ├── inventory
+│       │   │   └── test.yml
+│       │   └── vars
+│       │       └── main.yml
+│       └── worker
+│           ├── README.md
+│           ├── defaults
+│           │   └── main.yml
+│           ├── handlers
+│           │   └── main.yml
+│           ├── meta
+│           │   └── main.yml
+│           ├── tasks
+│           │   └── main.yml
+│           ├── tests
+│           │   ├── inventory
+│           │   └── test.yml
+│           └── vars
+│               └── main.yml
+├── app1
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app.py
+│   ├── create.py
+│   ├── requirements.txt
+│   ├── templates
+│   │   └── index.html
+│   └── tests
+│       └── test_app1.py
+├── app2
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app.py
+│   ├── requirements.txt
+│   └── tests
+│       └── test_app2.py
+├── app3
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app.py
+│   ├── requirements.txt
+│   └── tests
+│       └── test_app3.py
+├── app4
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app.py
+│   ├── requirements.txt
+│   └── tests
+│       └── test_app4.py
+├── docker-compose.yaml
+├── documents
+│   └── dcpp_CDCI.pptx
+├── htmlcov
+├── images
+├── nginx
+│   └── nginx.conf
+├── requirements.txt
+├── risk_assessment
+│   └── DCPP-risk-assessment.xlsx
+└── runpytest.bat
+</pre>
