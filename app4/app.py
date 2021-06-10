@@ -37,7 +37,6 @@ def source_result(distance_traveled):
                 result = "Overshot - LOSSER!"
             else:
                 result = "Undershot - LOSSER!"
-
     return result
 
 
