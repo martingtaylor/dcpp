@@ -18,13 +18,15 @@ To that extent, the project must demonstrate, the use of:
 * DOCKER as a containerisation tool.
 * DOCKER-SWARM as a deploy technology of choice.
 * ANSIBLE as a configuration management tool.
+* Data perssisted to a MySQL Database.
+* The deployment and use of a Load-Balancer.
 
 The project must also include:
 * A sample of the JIRA Board used during the application life cycle.
 * A simple ERD.
 * A Risk Assessement.
 
-GITHUB has been used as a code repository: [Link to DCCP GITHUB](https://github.com/martingtaylor/dcpp)
+GITHUB has been used as a code repository: [Link to DCCP GITHUB Repo](https://github.com/martingtaylor/dcpp)
 
 ## The "Game"
 The appilcation is a simple Cannon Ball / Target game. 
@@ -72,22 +74,41 @@ A simple ERD disagram for this table:
 
 ![ERD](images/dcpp_ERD.png)
 
+
+### VM Instances
+The following VM Instances were created to host the application:
+|Instance|Type|Description|
+|--------|----|-----------|
+|dcppdatabase|MySQL| Database server, used to store previous firings details|
+|dcpp-docker|VM e2-small|Jenkins, Docker, Ansible Server|
+|dcpp-manager|VM e2-medium|Docker Swarm Manager|
+|dcpp-worker|VM e2-medium|Docker Swarm Worker|
+|dcpp-nginx|VM e2-micro|Load Balancer|
+
+
+
 ## CI/CD
-The appilcation was developed in python, using Microsoft Visual Studio, linked to GITLAB. During the development process, regular updates where posted to the GIT DEV branch.
+The appilcation was developed in **Python**, using **Microsoft Visual Studio** as an IDE, and employing **GITHUB** as a code repository. During the development process, regular updates where posted to the GIT DEV branch.
 
-A Web-hook was attached to the GIT Repo, currently monitoring the DEV branch, (it will alter be moved to Main branch, if and when the application goes into production!!) 
 
+### GITHUB Repo
 The Repo also contained:
 |File|Description|
 |----|-----------|
-|Jenkinsfile|Containing the pipeline build, upload and deploy the |application
+|Jenkinsfile|Containing the pipeline to:  test, build, **DOCKER HUB** upload and deploy the a **DOCKER SWARM**|
 |Dockerfiles|To build each service|
+|docker-compose.yaml|Docker Compose build script|
 |Requerments.txt|Requerements for each service|
+|README.md|Application documentation|
+|Documents|Other documents and images|
 
-Overview of the CI/CD process:
+### GITHUB -> Jenkins WEBHOOK
+A _Web-hook_ was attached to the GIT DEV branch, (it will alter be moved to Main branch, if and when the application goes into production!!) which triggered the automatic CD/CI cycle
+
+### Overview of the CI/CD process:
 ![CD/CI Process](images/dcpp_CDCI.PNG)
 
-On a push to Github, a Web-Hook triggers a Jenkins pipeline, that:
+On a **push** to **Github**, a _Web-Hook_ triggers a Jenkins pipeline, that:
 1. Pulls the application from the GIT Repo.
 2. Run a requirments install.
 2. Runs PYTEST against the new code:
@@ -95,8 +116,9 @@ On a push to Github, a Web-Hook triggers a Jenkins pipeline, that:
 3. Runs the DOCKER-COMPOSE to create images for each service.
 4. Uploads the new images to DOCKERHUB. (Login credentials are stored within Jenkins secrets manager.)
 ![DOCKERHUB](images/dccp_Dockerhub.PNG)
-5. Ansible
-6. Creates and configures a NGINX load balancer.
+5. **Ansible** used to build a **DOCKER SWARM**, referencing to the services stored in **DOCKER HUB**
+6. **Ansible** then build the Load-Balancer **NGINX**.
+6. Jenkins then completes the installation by building the stack.
 
 
 ## Unit Tests
