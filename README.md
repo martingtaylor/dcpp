@@ -56,6 +56,8 @@ The application is based on four seperate, python based services:
 
 **APP1** also is responsible for recording the details of the firing to a table within a MYSQL database. The is database is a single table containing:
 
+![Overview](images/dccp_Arch_Overview.png)
+
 |Column|Type|Description|
 |------|----|-----------|
 |id       |Integer, Not Null|Row Identifier and Primary Key|
