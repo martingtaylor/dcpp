@@ -29,14 +29,11 @@ The project must also include:
 GITHUB has been used as a code repository: [Link to DCCP GITHUB Repo](https://github.com/martingtaylor/dcpp)
 
 ## The "Game"
-The appilcation is a simple Cannon Ball / Target game. 
+The appilcation is a simple Cannon Ball / Target game. The user presses the fire button and a randon Elevation Angle and Muzzle velocity are generated, then the distance the cannon ball travels is calculated using the simplistic formula:
 
-When the user presses the fire button, a simple service select an angle of cannon elevation from defined list, another service generates the muzzle velocity of the cannon ball from a defined rane.
+![EQUATION](images/dcpp_Equation.PNG)
 
-
-The angle and velocity are sent to third service which calculates the distance travlle and how close to a 100 meter target the cannon balls land. This score is then rank from a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
-
-The complete set of data (angle, velocity and message), is persisted to a MySQL database, and the last 10 entries displayed under the latest result.
+The distance form a 1000 meter target if then calculated and a ranking and message (sometimes rude!) generated.
 
 When accessed the screen displays:
 
@@ -48,6 +45,12 @@ Pressing the fire button, fires the cannon ball and generates a score. The last 
 
 
 ## Techincal Design
+Pressing  the fire button causes a simple service select an angle of cannon elevation from defined list, another service generates the muzzle velocity of the cannon ball from a defined rane.
+
+The angle and velocity are sent to third service which calculates the distance travlle and how close to a 100 meter target the cannon balls land. This score is then rank from a direct hit scoring a BULLS EYE, in 10 meter inetrvals, giving an increaing rude message.
+
+The complete set of data (angle, velocity and message), is persisted to a MySQL database, and the last 10 entries displayed under the latest result.
+
 The application is based on four seperate, python based services:
 |Service|Description|
 |-------|-----------|
