@@ -1,5 +1,4 @@
-# dcpp
-# DevOps Core Practical Project
+# DCPP - **D**evOps **C**ore **P**ractical **P**roject
 
 ## Content
 1. Background
@@ -70,7 +69,7 @@ A simple ERD disagram for this table:
 
 ![ERD](images/dcpp_ERD.png)
 
-## CI.CD
+## CI/CD
 The appilcation was developed in python, using Microsoft Visual Studio, linked to GITLAB. During the development process, regular updates where posted to the GIT DEV branch.
 
 A Web-hook was attached to the GIT Repo, currently monitoring the DEV branch, (it will alter be moved to Main branch, if and when the application goes into production!!) 
