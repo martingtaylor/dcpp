@@ -5,6 +5,7 @@ pipeline{
         rollback = 'false'
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        DATABASE_URI    = credentials('DATABASE_URI')
     }
     stages{
         stage('Requirements') {
@@ -56,7 +57,7 @@ pipeline{
 
                     # docker stack deploy
                     ssh -i ~/.ssh/ansible_id_rsa jenkins@dcppmanager << EOF
-                        export DATABASE_URI=${DATABASE_URI}
+                        export DATABASE_URI=$DATABASE_URI
                         docker stack deploy --compose-file docker-compose.yaml animal_noises
 EOF
                 '''
