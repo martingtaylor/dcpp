@@ -28,7 +28,7 @@ pipeline{
         stage('Build Images') {
             steps {
 	            sh '''
-                    docker system prune --force --all
+                    # docker system prune --force --all
 		            docker-compose build
 		        '''
             }

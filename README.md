@@ -1,5 +1,13 @@
 # DCPP - **D**evOps **C**ore **P**ractical **P**roject
 
+## INTRODUCTION
+**Martin Glenn Taylor** 
+(_definiately the oldest member of the cohort!_)
+
+![Me](images/MartinTaylor.jpg) 
+
+
+
 ## Content
 1. Background
 2. The "Game"
