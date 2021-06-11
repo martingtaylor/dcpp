@@ -14,12 +14,10 @@
 		<button type=submit>FIRE!</button>
 	</form>
 	<pre>
-	{% if velocity %}
-	<h1>{{ outcome.text }}</h1>
-	{% endif %}
+	{% if velocity %}<h1>{{ outcome.text }}</h1>{% endif %}
 	{% if allfires %}
 		{% for f in allfires %}
-{{ f.result }}
+   {{ f.result }}
 		{% endfor %}
 	{% endif %}
 	</pre>
