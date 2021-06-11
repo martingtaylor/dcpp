@@ -11,6 +11,6 @@ class TestPowerCall(TestBase):
     def test_app3(self):
         response = self.client.get(url_for('velocity'))
         self.assert200(response)
-        self.assertIn(int(response.data.decode('utf-8')), range(90,120))
+        self.assertIn(int(response.data.decode('utf-8')), range(90,110))
 
         

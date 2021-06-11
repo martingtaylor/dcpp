@@ -13,13 +13,13 @@ class TestPowerCall(TestBase):
         # Overshot
         response = self.client.post(url_for('fire'), data='45,110')
         self.assert200(response)
-        expected = "Muzzle Velocity=110 Elevation=45 Distance Travelled=1234 : Overshot - LOSSER!!"
+        expected = "Muzzle Velocity=110 Elevation=45 Distance Travelled=1234 : Overshot - LOSSER!"
         self.assertEqual(response.data.decode('utf-8'), expected)
         
         # Undershot
         response = self.client.post(url_for('fire'), data='45,89')
         self.assert200(response)
-        expected = "Muzzle Velocity=89 Elevation=45 Distance Travelled=808 : Undershot - LOSSER!!"
+        expected = "Muzzle Velocity=89 Elevation=45 Distance Travelled=808 : Undershot - LOSSER!"
         self.assertEqual(response.data.decode('utf-8'), expected)        
 
         # Bulls Eye

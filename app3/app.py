@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def velocity():
-    muzz_vel = str(random.randrange(90, 120))
+    muzz_vel = str(random.randrange(90, 110))
     # return Response(muzz_vel, mimetype='type/plain')
     return muzz_vel
 

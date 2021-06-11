@@ -34,9 +34,9 @@ def source_result(distance_traveled):
             result = "Within 100 meters - Bad Shot!"   
         else:
             if distance_traveled > target_distance:
-                result = "Overshot - LOSSER!!"
+                result = "Overshot - LOSSER!"
             else:
-                result = "Undershot - LOSSER!!"
+                result = "Undershot - LOSSER!"
     return result
 
 
