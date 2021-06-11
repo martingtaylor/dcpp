@@ -121,7 +121,7 @@ A simple ERD disagram for this table:
 
 ### Deployment Design:
 The application has to demonstrate:
-* Basic Security isolation via a Reverse Procy.
+* Basic Security isolation via a Reverse Proxy.
 * Load-Balancing and multi container deployment, using DOCKER containers and a SWARM installation, running on a small network of a single Manger and Worker node.
 
 ### VM Instances
