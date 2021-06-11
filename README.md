@@ -174,7 +174,6 @@ On a **push** to **Github**, a _Web-Hook_ triggers a Jenkins pipeline, that:
 Finally, **Jenkins** displays:
 ![JENKINSBUILD](images/dcpp_Jenkins_build.PNG)
 
-
 ## Unit Tests
 The following unit test where created:
 |Service|Test|Description|
