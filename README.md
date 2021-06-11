@@ -8,7 +8,8 @@
 5. Techincal Design
 6. CI/CD
 7. Unit Tests
-9. Development Repository Structure
+8. Development Repository Structure
+9. Further Developement
 
 
 ## Background
@@ -302,3 +303,10 @@ dcpp
 │   └── DCPP-risk-assessment.xlsx
 └── runpytest.bat
 </pre>
+
+## Further Development
+1. I have installed all Jenkins, Docker and Ansible all on the same VM instance. I would like to break these into a seperate Jenkins server.
+2. I need to revisit the requirements.txt file used for the deployment, and make some of these modules optional per installation type.
+3. Make the application a little more interesting that it is!
+
+
