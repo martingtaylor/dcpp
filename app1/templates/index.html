@@ -13,6 +13,7 @@
 	<form method='GET' action="{{ url_for('fire') }}">
 		<button type=submit>FIRE!</button>
 	</form>
+	<pre>
 	{% if velocity %}
 	<h1>{{ outcome.text }}</h1>
 	{% endif %}
@@ -22,5 +23,6 @@
 			<br>
 		{% endfor %}
 	{% endif %}
+	</pre>
 </html>
 
