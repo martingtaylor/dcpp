@@ -7,6 +7,7 @@ class TestBase(TestCase):
     def create_app(self):
         return app
 
+        
 class TestPowerCall(TestBase):
     def test_app4(self):
         # Overshot
