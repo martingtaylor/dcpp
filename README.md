@@ -183,11 +183,16 @@ Finally, **Jenkins** displays:
 ![JENKINSBUILD](images/dcpp_Jenkins_build.PNG)
 
 ## Unit Tests
-The following unit test where created:
+The following unit test chases where created:
+1. APP1 - That the GUI returns the correcy message as a result of calling the sub components.
+2. APP2 - Test that the complete range of Elevation Angles are tested.
+3. APP3 - Test that the complete range of Muzzle Velocities are tested.
+4. APP4 - Test that validate distances and rankings for combination of Elevation Angles and Muzzle Velocities properly calculated.
+
 |Service|Test|Description|
 |-------|----|-----------|
 |APP1   |Assert200   |Access to access "/"|
-|       |AssertIn    |Mock request for APP2, APP3 and APP4, to exercise APP2 request|
+|       |AssertIn    |Mock Request for APP2, APP3 and APP4, to exercise APP2 request|
 |APP2   |Assert200   |Access to elevation service|
 |       |AssertIn    |Validate return value|
 |APP3   |Assert200   |Access to veloicity service|
@@ -202,11 +207,11 @@ The **PYTEST** command used was:
 Happly able to validate 100% coverage:
 ![Unit Tests](images/dcpp_PYTEST.PNG)
 
-Coverage HTML where generated and saved to GIT:
+Coverage HTMLs where generated and saved to GIT:
 
 ![Unit Test](images/dcpp_HTML_index.PNG)
 
-
+**NOTE:** Given time, I would have added a further test to check that an entry is being made to the database, by query the results from the table following a write.
 
 
 
@@ -315,6 +320,7 @@ dcpp
 ## Further Development
 1. I have installed all Jenkins, Docker and Ansible all on the same VM instance. I would like to break these into a seperate Jenkins server.
 2. I need to revisit the requirements.txt file used for the deployment, and make some of these modules optional per installation type.
-3. Make the application a little more interesting that it is!
+3. Extend Unit Testing to include Database Insertion.
+4. Make the application a little more interesting that it is!
 
 
