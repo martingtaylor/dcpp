@@ -145,7 +145,7 @@ The following VM Instances were created to host the application:
 
 
 ## CI/CD
-The appilcation was developed in **Python**, using **Microsoft Visual Studio** as an IDE, employing **GITHUB** as a code repository. During the development process, regular updates where posted to the GIT DEV branch.
+The appilcation was developed in **Python**, using **Microsoft Visual Studio** as an IDE, employing **GITHUB** as a code repository. During the development process, regular updates where posted to the GIT DEV branch. The final version will be merge into the main branch.
 
 
 ### GITHUB Repo
