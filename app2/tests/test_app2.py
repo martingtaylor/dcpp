@@ -10,6 +10,6 @@ class TestBase(TestCase):
 class TestPowerCall(TestBase):
     def test_app2(self):
         response = self.client.get(url_for('elevation'))
-        list_angles = "20,30,40,50,60,70"
+        list_angles = "20,30,40,50,60,70","80"
         self.assert200(response)
         self.assertIn(response.data.decode('utf-8'), list_angles)
